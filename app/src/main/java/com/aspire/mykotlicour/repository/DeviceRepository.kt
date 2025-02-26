@@ -1,6 +1,7 @@
 package com.aspire.mykotlicour.repository
 
 import com.aspire.mykotlicour.apicommon.ApiService
+import com.aspire.mykotlicour.model.DeleteResp
 import com.aspire.mykotlicour.model.Device
 import retrofit2.Response
 import javax.inject.Inject
@@ -18,6 +19,8 @@ class DeviceRepository @Inject constructor(private val apiService: ApiService) {
     suspend fun getPosts(): Response<List<Device>> = apiService.getAllDevices()
 
     suspend fun saveDevice(device: Device): Response<Device> = apiService.saveDevice(device)
+
+    suspend fun deleteDevice(device: Device): Response<DeleteResp> = apiService.deleteDevice("ff808181932badb6019540a2530720c3")
 
 
 

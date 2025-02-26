@@ -35,9 +35,11 @@ class ListFragment : Fragment(), DeviceOpertions {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.progressBar.visibility = View.VISIBLE
 
         listViewModel.deviceResp.observe(viewLifecycleOwner, Observer { value ->
             Log.e("Susan","22")
+            binding.progressBar.visibility = View.GONE
             value.body()?.let {
                 Log.e("Susan","333"+ value.body()!!.size)
                 setUI(value.body())
@@ -58,8 +60,15 @@ class ListFragment : Fragment(), DeviceOpertions {
     }
 
     override fun onDeleteClick(item: Device) {
+        listViewModel.deleteItem(item)
+        listViewModel.deviceDeleteResp.observe(viewLifecycleOwner, Observer { value ->
+            if(value.isSuccessful)
+            Toast.makeText(context, "Deleted : "+value.body()!!.message, Toast.LENGTH_SHORT).show()
+            else{
+                Toast.makeText(context, "Delete operation not possible ", Toast.LENGTH_SHORT).show()
+            }
+        })
 
-        Toast.makeText(context, "Deleted "+item.name, Toast.LENGTH_SHORT).show()
     }
 
     override fun onCreateView(

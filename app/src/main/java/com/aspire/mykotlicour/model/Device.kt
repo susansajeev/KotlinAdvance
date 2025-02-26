@@ -18,3 +18,11 @@ data class Data(
     @SerializedName("CPU model") val model: String,
     @SerializedName("Hard disk size") val harDiskSize: String
 )
+
+data class DeleteResp(
+    val message: String,
+    val error: String,
+
+)
+
+

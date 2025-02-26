@@ -8,6 +8,15 @@
     tools:context=".fragment.ListFragment"
     android:layout_marginTop="10dp">
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_gravity="center" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
