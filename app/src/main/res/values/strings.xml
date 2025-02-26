@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MyKotliCour</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+</resources>
